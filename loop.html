@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>W3.CSS Template</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
+    .w3-sidebar {
+      z-index: 3;
+      width: 250px;
+      top: 43px;
+      bottom: 0;
+      height: inherit;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-theme w3-top w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
+    <a href="index.html" class="w3-bar-item w3-button w3-theme-l1">Home</a>
+    <a href="aboutlooping.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white">About</a>
+    <a href="contactinfo.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact</a>
+  </div>
+</div>
+
+<!-- Sidebar -->
+<nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large" title="Close Menu">
+    <i class="fa fa-remove"></i>
+  </a>
+  <h4 class="w3-bar-item"><b>Menu</b></h4>
+  <a class="w3-bar-item w3-button w3-hover-black" href="conversion.html">Conversion</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="income.html">ITCalculator</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="layout.html">Payroll</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="index.html">Home</a>
+</nav>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
+<div class="w3-main" style="margin-left:250px">
+
+  <div class="w3-row w3-padding-64">
+    <div class="w3-twothird w3-container">
+      <h1 class="w3-text-teal">Combined Math Operations</h1>
+
+      <!-- Factorial, Sum, and Average Calculator -->
+      <h2>Factorial, Sum, and Average Calculator</h2>
+
+      <label for="factorial">Enter a Number for Factorial:</label>
+      <input type="number" id="factorial" placeholder="Enter a number..." />
+      <button id="Factorial">Calculate Factorial</button>
+      <p id="resultF">Result: </p>
+
+      <label for="input1">Enter a Number for Sum:</label>
+      <input type="number" id="input1" placeholder="Enter a number..." />
+      <button id="Sum">Calculate Sum</button>
+      <p id="sum">Result: </p>
+
+      <label for="average">Enter a Number for Average:</label>
+      <input type="number" id="average" placeholder="Enter a number..." />
+      <button id="Average">Calculate Average</button>
+      <p id="result">Result: </p>
+
+    </div>
+    <div class="w3-third w3-container">
+      <p class="w3-border w3-padding-large w3-padding-32 w3-center">AD</p>
+      <p class="w3-border w3-padding-large w3-padding-64 w3-center">AD</p>
+    </div>
+  </div>
+
+  <!-- Other content sections... -->
+
+  <!-- Pagination -->
+  <div class="w3-center w3-padding-32">
+    <div class="w3-bar">
+      <a class="w3-button w3-black" href="index.html">1</a>
+      <a class="w3-button w3-hover-black" href="conversion.html">2</a>
+      <a class="w3-button w3-hover-black" href="income.html">3</a>
+      <a class="w3-button w3-hover-black" href="layout.html">4</a>
+      <a class="w3-button w3-hover-black" href="#">5</a>
+      <a class="w3-button w3-hover-black" href="#">»</a>
+    </div>
+  </div>
+
+  <footer id="myFooter">
+    <div class="w3-container w3-theme-l2 w3-padding-32">
+      <h4>I'm trying my best ^^.</h4>
+    </div>
+
+    <div class="w3-container w3-theme-l1">
+      <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+    </div>
+  </footer>
+
+<!-- END MAIN -->
+</div>
+
+<script>
+  document.getElementById("Factorial").addEventListener("click", function () {
+    var total = 1;
+    var i = 1;
+    var n = document.getElementById("factorial").value;
+    if (n < 0) {
+        alert("Cannot perform factorial on negative numbers.");
+    } else {
+        while (i <= n) {
+            total = total * i;
+            i++;
+        }
+        document.getElementById("resultF").innerHTML = "Factorial of " + n + " is " + total;
+    }
+  });
+
+  document.getElementById("Sum").addEventListener("click", function () {
+    var n = document.getElementById("input1").value;
+    var i = n;
+    var total = 0;
+    if (n < 0) {
+        alert("Please enter a positive integer");
+    } else {
+        do {
+            total = parseInt(total + i);
+            i--;
+        } while (i >= 1);
+    }
+    document.getElementById("sum").innerHTML = "The sum is " + total;
+  });
+
+  document.getElementById("Average").addEventListener("click", function () {
+    var x = document.getElementById("average").value;
+    var i = 1, total = 0;
+    for (i = 1; i <= x; i++) {
+        total = total + i;
+    }
+    var average = total / (i - 1);
+    document.getElementById("result").innerHTML = "The average is " + average.toFixed(2);
+  });
+
+ 
+  var mySidebar = document.getElementById("mySidebar");
+
+
+  var overlayBg = document.getElementById("myOverlay");
+
+  function w3_open() {
+    if (mySidebar.style.display === 'block') {
+      mySidebar.style.display = 'none';
+      overlayBg.style.display = "none";
+    } else {
+      mySidebar.style.display = 'block';
+      overlayBg.style.display = "block";
+    }
+  }
+
+  function w3_close() {
+    mySidebar.style.display = "none";
+    overlayBg.style.display = "none";
+  }
+</script>
+
+</body>
+</html>
