@@ -1,0 +1,164 @@
+TYPE html>
+<html lang="en">
+<head>
+  <title>W3.CSS Template</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
+    .w3-sidebar {
+      z-index: 3;
+      width: 250px;
+      top: 43px;
+      bottom: 0;
+      height: inherit;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-theme w3-top w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
+    <a href="index.html" class="w3-bar-item w3-button w3-theme-l1">Home</a>
+    <a href="aboutconversion.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white">About</a>
+    <a href="contactinfo.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact</a>
+  </div>
+</div>
+
+<!-- Sidebar -->
+<nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large" title="Close Menu">
+    <i class="fa fa-remove"></i>
+  </a>
+  <h4 class="w3-bar-item"><b>Menu</b></h4>
+  <a class="w3-bar-item w3-button w3-hover-black" href="looping.html">Looping</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="income.html">ITCalculator</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="layout.html">Payroll</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="index.html">Home</a>
+</nav>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
+<div class="w3-main" style="margin-left:250px">
+
+  <div class="w3-row w3-padding-64">
+    <div class="w3-twothird w3-container">
+      <h1 class="w3-text-teal">Combined Unit Conversion</h1>
+
+      <!-- Temperature Conversion -->
+      <h2>Temperature Conversion</h2>
+      <label for="inputC">Enter Celsius:</label>
+      <input type="number" id="inputC" placeholder="Enter Celsius..." />
+      <button id="CtoF">Convert to Fahrenheit</button>
+      <p id="resultF">Result: </p>
+
+      <label for="inputF">Enter Fahrenheit:</label>
+      <input type="number" id="inputF" placeholder="Enter Fahrenheit..." />
+      <button id="FtoC">Convert to Celsius</button>
+      <p id="resultC">Result: </p>
+
+      <!-- Length Conversion -->
+      <h2>Length Conversion</h2>
+      <label for="inputFeet">Enter Feet:</label>
+      <input type="number" id="inputFeet" placeholder="Enter Feet..." />
+      <button id="FtoM">Convert to Meters</button>
+      <p id="resultM">Result: </p>
+
+      <label for="inputM">Enter Meters:</label>
+      <input type="number" id="inputM" placeholder="Enter Meters..." />
+      <button id="MtoF">Convert to Feet</button>
+      <p id="resultFeet">Result: </p>
+
+    </div>
+    <div class="w3-third w3-container">
+      <p class="w3-border w3-padding-large w3-padding-32 w3-center">AD</p>
+      <p class="w3-border w3-padding-large w3-padding-64 w3-center">AD</p>
+    </div>
+  </div>
+
+  <!-- Other content sections... -->
+
+  <!-- Pagination -->
+  <div class="w3-center w3-padding-32">
+    <div class="w3-bar">
+      <a class="w3-button w3-black" href="index.html">1</a>
+      <a class="w3-button w3-hover-black" href="looping.html">2</a>
+      <a class="w3-button w3-hover-black" href="income.html">3</a>
+      <a class="w3-button w3-hover-black" href="layout.html">4</a>
+      <a class="w3-button w3-hover-black" href="#">5</a>
+      <a class="w3-button w3-hover-black" href="#">»</a>
+    </div>
+  </div>
+
+  <footer id="myFooter">
+    <div class="w3-container w3-theme-l2 w3-padding-32">
+      <h4>I'm just a girl in the village doing alright.</h4>
+    </div>
+
+    <div class="w3-container w3-theme-l1">
+      <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+    </div>
+  </footer>
+
+<!-- END MAIN -->
+</div>
+
+<script>
+  document.getElementById("CtoF").addEventListener("click", function () {
+    var celsius = parseFloat(document.getElementById("inputC").value);
+    var fahrenheit = (celsius * 9 / 5) + 32;
+    document.getElementById("resultF").innerHTML = fahrenheit.toFixed(2) + " °F";
+  });
+
+  document.getElementById("FtoC").addEventListener("click", function () {
+    var fahrenheit = parseFloat(document.getElementById("inputF").value);
+    var celsius = (fahrenheit - 32) * 5 / 9;
+    document.getElementById("resultC").innerHTML = celsius.toFixed(2) + " °C";
+  });
+
+  document.getElementById("FtoM").addEventListener("click", function () {
+    var feet = parseFloat(document.getElementById("inputFeet").value);
+    var meters = feet * 0.3048;
+    document.getElementById("resultM").innerHTML = meters.toFixed(4) + " Meters";
+  });
+
+  document.getElementById("MtoF").addEventListener("click", function () {
+    var meters = parseFloat(document.getElementById("inputM").value);
+    var feet = meters * 3.28084;
+    document.getElementById("resultFeet").innerHTML = feet.toFixed(4) + " Feet";
+  });
+
+  // Get the Sidebar
+  var mySidebar = document.getElementById("mySidebar");
+
+  // Get the DIV with overlay effect
+  var overlayBg = document.getElementById("myOverlay");
+
+  // Toggle between showing and hiding the sidebar, and add overlay effect
+  function w3_open() {
+    if (mySidebar.style.display === 'block') {
+      mySidebar.style.display = 'none';
+      overlayBg.style.display = "none";
+    } else {
+      mySidebar.style.display = 'block';
+      overlayBg.style.display = "block";
+    }
+  }
+
+  // Close the sidebar with the close button
+  function w3_close() {
+    mySidebar.style.display = "none";
+    overlayBg.style.display = "none";
+  }
+</script>
+
+</body>
+</html>
